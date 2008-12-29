@@ -43,7 +43,13 @@ class fox_febase extends tslib_pibase
 		return $this->cObj->substituteMarkerArrayCached($tCode, $noResMarkers);
 	}
 
+	// ==========================
+	// = User Related Functions =
+	// ==========================
 	
+	function feuser_logged_in()	{
+		return is_array($GLOBALS['TSFE']->fe_user->user);
+	}
 }
 
 if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/foxbase/class.fox_febase.php'])	{
