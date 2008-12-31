@@ -42,6 +42,30 @@ class fox_febase extends tslib_pibase
 		
 		return $this->cObj->substituteMarkerArrayCached($tCode, $noResMarkers);
 	}
+	
+	function makeMarkerArray($assocArray=array()) {
+		$substArray = array();
+		
+		foreach ($assocArray as $key => $value) {
+			$markerKey = '###ITEM_'.strtoupper($key).'###';
+			
+			$substArray[$markerKey] = $value;
+		}
+		
+		return $substArray;
+	}
+
+	function makeHeaderArray($assocArray=array()) {
+		$substArray = array();
+		
+		foreach ($assocArray as $key => $value) {
+			$markerKey = '###HEAD_'.strtoupper($key).'###';
+			
+			$substArray[$markerKey] = $key;
+		}
+		
+		return $substArray;
+	}
 
 	// ==========================
 	// = User Related Functions =
